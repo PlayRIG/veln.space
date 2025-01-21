@@ -1,0 +1,36 @@
+---
+import Analytics from "@vercel/analytics/astro";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <Analytics />
+
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta
+      name="description"
+      content="Veln is Minimalistic AI Framework for create your AI Agents or assistant easily."
+    />
+    <title>VELN.</title>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+
+<style>
+  @import url(https://fonts.bunny.net/css?family=hanken-grotesk:400,500,600);
+
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: "Hanken Grotesk", sans-serif;
+    width: 100%;
+    height: 100%;
+  }
+</style>
