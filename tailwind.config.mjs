@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "instrument-serif": ["Instrument Serif", "serif"],
+        "neue-machina": ["Neue Machina", "serif"],
       },
     },
   },

@@ -25,12 +25,21 @@ import Analytics from "@vercel/analytics/astro";
 <style>
   @import url(https://fonts.bunny.net/css?family=hanken-grotesk:400,500,600);
 
+  @font-face {
+    font-family: "Neue Machina";
+    src: url("/fonts/NeueMachina.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
   html,
   body {
     padding: 0;
     margin: 0;
     font-family: "Hanken Grotesk", sans-serif;
     width: 100%;
+    background-color: #1a1a1d;
     height: 100%;
   }
 </style>
