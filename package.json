@@ -1,5 +1,6 @@
 {
-  "name": "ryy.re",
+  "name": "veln.io",
+  "description": "Veln is Minimalistic AI Framework for create your AI Agents or assistant easily.",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
