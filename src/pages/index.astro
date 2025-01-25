@@ -1,16 +1,110 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import ParticleSvg from "@components/svg/particle.svg";
+import HerosSvg from "@components/svg/heros.svg";
+import {ButtonCTA, ScrollCTA} from "@components/ui";
 ---
 
 <Layout>
-  <div class="h-screen items-center justify-center flex">
-    <div class="flex-col flex space-y-3 text-center">
-      <h1 class="text-7xl text-white font-neue-machina font-bold uppercase">
-        VELN: The Future Of
-      </h1>
-      <h2 class="text-7xl text-[#25F700] uppercase font-bold font-neue-machina">
-        AI Frameworks
-      </h2>
-    </div>
+  <div class="fixed right-0 top-1/2 -translate-y-1/2 z-[9]">
+    <ScrollCTA client:load />
   </div>
+
+  <section class="items-center justify-center flex relative h-screen">
+    <div class="absolute z-[3] -mt-[5rem] w-full">
+      <div class="text-center flex-col space-y-3">
+        <h1
+          class="font-neue-machina font-bold uppercase inline-block bg-gradient-to-r from-[#959595] via-white/90 to-[#ffffff] bg-clip-text text-transparent text-7xl">
+          VELN: The Future Of
+        </h1>
+        <h2 class="font-neue-machina font-bold uppercase text-[#FF006B] text-7xl">
+          AI Frameworks
+        </h2>
+      </div>
+
+      <div class="flex w-full flex-col space-y-10 mt-8 justify-center items-center">
+        <div class="max-w-[36rem]">
+          <p class="text-center font-light text-white opacity-50 text-xl">
+            A minimalistic AI solution built for your next-generation AI agent—smooth,
+            simple, and powerful.
+          </p>
+        </div>
+
+        <div class="flex space-x-5 items-center">
+          <a target="_blank" href="https://docs.veln.space">
+            <ButtonCTA
+              client:load
+              className="w-52 py-2.5"
+              text="READ THE DOCS"
+              isCTAExist
+            />
+          </a>
+          <div>
+            <ButtonCTA
+              disabled
+              client:load
+              className="w-72 py-2.5"
+              text="NPX CREATE-VELN@LATEST"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ParticleSvg class="absolute inset-0 h-full w-full z-[2]" />
+    <HerosSvg class="fixed z-[1] h-full w-full" />
+  </section>
+
+  <!-- Add more sections for full-page scrolling -->
+  <section class="items-center justify-center flex relative h-screen z-[6] bg-[#000]">
+    <h1 class="text-white text-7xl">Section 2</h1>
+  </section>
+
+  <section class="items-center justify-center flex relative h-screen z-[7] bg-[#000]">
+    <h1 class="text-white text-7xl">Section 3</h1>
+  </section>
+
+  <section class="items-center justify-center flex relative h-screen z-[8] bg-[#000]">
+    <h1 class="text-white text-7xl">Section 4</h1>
+  </section>
 </Layout>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    let currentSectionIndex = 0;
+    let isScrolling = false;
+
+    window.addEventListener("wheel", (event) => {
+      event.preventDefault();
+
+      if (isScrolling) return;
+
+      isScrolling = true;
+
+      const direction = event.deltaY > 0 ? 1 : -1; // 1 for down, -1 for up
+      const nextSectionIndex = currentSectionIndex + direction;
+
+      // Ensure the next section index is within bounds
+      if (nextSectionIndex >= 0 && nextSectionIndex < sections.length) {
+        currentSectionIndex = nextSectionIndex;
+        sections[currentSectionIndex].scrollIntoView({behavior: "smooth"});
+      }
+
+      // Reset the flag after the scroll animation is complete
+      setTimeout(() => {
+        isScrolling = false;
+      }, 800); // Adjust this delay to match the scroll animation duration
+    });
+  });
+</script>
