@@ -1,5 +1,5 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "@layouts/Layout.astro";
 import ParticleSvg from "@components/svg/particle.svg";
 import HerosSvg from "@components/svg/heros.svg";
 import {ButtonCTA, ScrollCTA} from "@components/ui";
@@ -15,7 +15,7 @@ import {ButtonCTA, ScrollCTA} from "@components/ui";
       <div class="text-center flex-col space-y-3">
         <h1
           class="font-neue-machina font-bold uppercase inline-block bg-gradient-to-r from-[#959595] via-white/90 to-[#ffffff] bg-clip-text text-transparent text-7xl">
-          VELN: The Future Of
+          VELN: A minimalistic
         </h1>
         <h2 class="font-neue-machina font-bold uppercase text-[#FF006B] text-7xl">
           AI Frameworks
@@ -25,8 +25,8 @@ import {ButtonCTA, ScrollCTA} from "@components/ui";
       <div class="flex w-full flex-col space-y-10 mt-8 justify-center items-center">
         <div class="max-w-[36rem]">
           <p class="text-center font-light text-white opacity-50 text-xl">
-            A minimalistic AI solution built for your next-generation AI agent—smooth,
-            simple, and powerful.
+            A minimalistic AI solution built for your next-generation AI agent or
+            assistants create it with —smooth, simple, and powerful.
           </p>
         </div>
 
@@ -55,7 +55,6 @@ import {ButtonCTA, ScrollCTA} from "@components/ui";
     <HerosSvg class="fixed z-[1] h-full w-full" />
   </section>
 
-  <!-- Add more sections for full-page scrolling -->
   <section class="items-center justify-center flex relative h-screen z-[6] bg-[#000]">
     <h1 class="text-white text-7xl">Section 2</h1>
   </section>
@@ -69,16 +68,6 @@ import {ButtonCTA, ScrollCTA} from "@components/ui";
   </section>
 </Layout>
 
-<style>
-  html,
-  body {
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-    overflow: hidden;
-  }
-</style>
-
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
@@ -87,24 +76,21 @@ import {ButtonCTA, ScrollCTA} from "@components/ui";
 
     window.addEventListener("wheel", (event) => {
       event.preventDefault();
-
       if (isScrolling) return;
 
       isScrolling = true;
 
-      const direction = event.deltaY > 0 ? 1 : -1; // 1 for down, -1 for up
+      const direction = event.deltaY > 0 ? 1 : -1;
       const nextSectionIndex = currentSectionIndex + direction;
 
-      // Ensure the next section index is within bounds
       if (nextSectionIndex >= 0 && nextSectionIndex < sections.length) {
         currentSectionIndex = nextSectionIndex;
         sections[currentSectionIndex].scrollIntoView({behavior: "smooth"});
       }
 
-      // Reset the flag after the scroll animation is complete
       setTimeout(() => {
         isScrolling = false;
-      }, 800); // Adjust this delay to match the scroll animation duration
+      }, 900);
     });
   });
 </script>
