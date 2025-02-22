@@ -4,7 +4,10 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "neue-machina": ["Neue Machina", "serif"],
+        machina: ["PP Neue Machina", "sans-serif"],
+      },
+      colors: {
+        "brand-pink": "#FF006B",
       },
     },
   },

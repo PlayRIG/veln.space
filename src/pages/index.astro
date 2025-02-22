@@ -1,70 +1,125 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import ParticleSvg from "@components/svg/particle.svg";
-import HerosSvg from "@components/svg/heros.svg";
-import {ButtonCTA, ScrollCTA} from "@components/ui";
+import HerosSvg from "@components/svg/hero.svg";
+import IconArrowRight from "../assets/images/icon-arrow-right.png";
+import {ButtonCTA, Container, ScrollCTA} from "@components/ui";
+import {features, logos} from "src/data";
+import {Image} from "astro:assets";
 ---
 
 <Layout>
-  <div class="fixed right-0 top-1/2 -translate-y-1/2 z-[9]">
+  <div class="right-0 top-1/2 z-[9] hidden -translate-y-1/2 md:fixed md:block">
     <ScrollCTA client:load />
   </div>
 
-  <section class="items-center justify-center flex relative h-screen">
-    <div class="absolute z-[3] -mt-[5rem] w-full">
-      <div class="text-center flex-col space-y-3">
-        <h1
-          class="font-neue-machina font-bold uppercase inline-block bg-gradient-to-r from-[#959595] via-white/90 to-[#ffffff] bg-clip-text text-transparent text-7xl">
-          VELN: A minimalistic
-        </h1>
-        <h2 class="font-neue-machina font-bold uppercase text-[#FF006B] text-7xl">
-          AI Frameworks
-        </h2>
-      </div>
-
-      <div class="flex w-full flex-col space-y-10 mt-8 justify-center items-center">
-        <div class="max-w-[36rem]">
-          <p class="text-center font-light text-white opacity-50 text-xl">
-            A minimalistic AI solution built for your next-generation AI agent or
-            assistants create it with —smooth, simple, and powerful.
-          </p>
-        </div>
-
-        <div class="flex space-x-5 items-center">
-          <a target="_blank" href="https://docs.veln.space">
-            <ButtonCTA
-              client:load
-              className="w-52 py-2.5"
-              text="READ THE DOCS"
-              isCTAExist
-            />
-          </a>
-          <div>
-            <ButtonCTA
-              disabled
-              client:load
-              className="w-72 py-2.5"
-              text="NPX CREATE-VELN@LATEST"
-            />
-          </div>
+  <section class="relative h-screen">
+    <Container className="absolute z-[3] text-center">
+      <h1
+        class="mx-auto font-machina text-3xl uppercase tracking-tight text-white sm:text-5xl md:text-6xl lg:max-w-[1060px] lg:text-[80px]">
+        Veln Veline: The Future of
+        <span class="text-brand-pink"> AI Frameworks </span>
+      </h1>
+      <p
+        class="mx-auto mb-8 mt-4 max-w-[750px] text-base sm:mb-10 sm:mt-8 sm:px-4 xl:text-lg">
+        A minimalistic AI solution built for your next-generation AI agent — smooth,
+        simple, and powerful.
+      </p>
+      <div
+        class="flex flex-col items-center space-y-4 sm:flex-row sm:space-x-5 sm:space-y-0">
+        <a target="_blank" href="https://docs.veln.space">
+          <ButtonCTA
+            client:load
+            className="w-52 py-2.5 transition-all duration-300 hover:bg-brand-pink"
+            text="READ THE DOCS"
+            isCTAExist
+          />
+        </a>
+        <div>
+          <ButtonCTA
+            disabled
+            client:load
+            className="w-72 cursor-copy py-2.5"
+            text="NPX CREATE-VELN@LATEST"
+          />
         </div>
       </div>
-    </div>
+    </Container>
 
-    <ParticleSvg class="absolute inset-0 h-full w-full z-[2]" />
-    <HerosSvg class="fixed z-[1] h-full w-full" />
+    <ParticleSvg class="absolute inset-0 z-[2] h-full w-full" />
+    <HerosSvg
+      class="fixed -bottom-[700px] left-1/2 right-0 z-[1] w-[120%] -translate-x-1/2 lg:-bottom-[700px]"
+    />
   </section>
 
-  <section class="items-center justify-center flex relative h-screen z-[6] bg-[#000]">
-    <h1 class="text-white text-7xl">Section 2</h1>
+  <section class="relative z-[6] h-screen bg-black">
+    <Container className="grid content-center gap-8 lg:gap-20">
+      <h1
+        class="text-center font-machina text-3xl uppercase text-white sm:text-5xl md:text-[56px]">
+        <span class="text-brand-pink">Technology</span> We&nbsp;Stand&nbsp;For
+      </h1>
+      <ul class="grid grid-cols-2 justify-items-center sm:grid-cols-5">
+        {
+          logos.map((logo) => (
+            <li class="group relative flex w-full items-center justify-center border-white/10 py-4 odd:border-r sm:border-r sm:px-6 lg:py-14 2xl:h-36 2xl:w-[304px] sm:[&:last-child]:border-r-0 [&:not(:nth-last-child(-n+2))]:border-b sm:[&:not(:nth-last-child(n+6))]:border-b-0 sm:[&:nth-child(5)]:border-r-0">
+              <Image
+                src={logo.logoUrl}
+                alt={logo.company}
+                class={`w-auto object-contain ${logo.customStyles}`}
+              />
+              <span class="absolute -bottom-[8px] -right-[25px] group-even:hidden group-[&:nth-child(9)]:hidden sm:group-even:block sm:group-[&:nth-child(5)]:hidden sm:group-[&:nth-last-child(-n+5)]:hidden">
+                <span class="inline-block h-[1px] w-[50px] bg-gradient-to-r from-white/0 via-[#ffffff3d] to-white/0" />
+                <span class="absolute left-1/2 top-1/2 inline-block h-[1px] w-[50px] -translate-x-1/2 -translate-y-1/2 rotate-90 bg-gradient-to-r from-white/0 via-[#ffffff3d] to-white/0" />
+              </span>
+            </li>
+          ))
+        }
+      </ul>
+    </Container>
   </section>
 
-  <section class="items-center justify-center flex relative h-screen z-[7] bg-[#000]">
-    <h1 class="text-white text-7xl">Section 3</h1>
+  <section class="relative z-[7] flex h-screen items-center justify-center bg-black">
+    <Container
+      className="grid h-screen grid-rows-[auto_1fr] gap-10 py-16 text-white md:py-[100px] lg:gap-20 2xl:px-[100px]">
+      <h1
+        class="mx-auto max-w-[360px] text-center font-machina text-3xl uppercase text-white sm:text-5xl md:max-w-[551px] md:text-[56px]">
+        Why Veln Veline Stands <span class="text-brand-pink">Out</span>
+      </h1>
+      <ul
+        class="relative flex h-full snap-x snap-mandatory gap-4 overflow-x-hidden lg:grid lg:grid-cols-4">
+        {
+          features.map((feature) => {
+            return (
+              <li
+                style={{backgroundImage: `url(${feature.cover.src})`}}
+                class="group relative flex min-h-full min-w-[80%] flex-1 snap-center snap-always flex-col justify-between overflow-hidden border border-white/10 bg-cover bg-center bg-no-repeat p-8 sm:min-w-[45%] lg:w-full">
+                <p class="font-machina font-medium">{feature.id}</p>
+                <div class="relative z-10">
+                  <div class="grid gap-4">
+                    <h2 class="max-w-60 font-machina text-xl uppercase">
+                      {feature.title}
+                    </h2>
+                    <p class="opacity-60">{feature.subtitle}</p>
+                  </div>
+                  <a
+                    href={feature.ctaLink}
+                    class="flex translate-y-[300%] transform items-center gap-4 transition-all duration-300 ease-in-out group-hover:mt-20 group-hover:translate-y-0 group-hover:cursor-pointer">
+                    CTA <Image src={IconArrowRight} alt="arrow right" />
+                  </a>
+                </div>
+                <div class="absolute bottom-0 left-0 right-0 h-[294px] w-full bg-black/30 blur-[34px]" />
+              </li>
+            );
+          })
+        }
+      </ul>
+    </Container>
   </section>
 
-  <section class="items-center justify-center flex relative h-screen z-[8] bg-[#000]">
-    <h1 class="text-white text-7xl">Section 4</h1>
+  <section class="relative z-[8] flex h-screen items-center justify-center bg-black">
+    <Container>
+      <h1 class="text-center font-machina text-7xl uppercase text-white">Roadmap</h1>
+    </Container>
   </section>
 </Layout>
 

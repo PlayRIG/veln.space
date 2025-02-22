@@ -21,6 +21,7 @@
     "radash": "^12.1.0",
     "react": "latest",
     "react-dom": "latest",
+    "tailwind-merge": "^3.0.1",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.7.2"
   },
@@ -30,6 +31,7 @@
     "@svgr/plugin-svgo": "^8.1.0",
     "prettier": "^3.4.1",
     "prettier-plugin-astro": "^0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.11",
     "vite-plugin-svgr": "^4.3.0"
   }
 }

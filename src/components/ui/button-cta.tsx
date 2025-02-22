@@ -17,15 +17,15 @@ export const ButtonCTA = (props: ButtonCTAProps) => {
     <button
       {...omit(props, ["className", "isCTAExist"])}
       aria-label="Button CTA"
-      className="border border-white/[15%]">
+      className="w-full border border-white/[15%]">
       <div className={clsx("relative", props.className)}>
-        <BLTSvg className="absolute -top-[1.5px] -left-[1.5px]" />
+        <BLTSvg className="absolute -left-[1.5px] -top-[1.5px]" />
         <BLBSvg className="absolute -bottom-[1.5px] -left-[1.5px]" />
-        <BRTSvg className="absolute -top-[1.5px] -right-[1.5px]" />
+        <BRTSvg className="absolute -right-[1.5px] -top-[1.5px]" />
         <BRBSvg className="absolute -bottom-[1.5px] -right-[1.5px]" />
 
-        <div className="flex space-x-2 items-center justify-center">
-          <p className="text-center font-neue-machina text-lg text-white opacity-90">
+        <div className="flex items-center justify-center space-x-2">
+          <p className="text-center font-machina text-white opacity-90 md:text-lg">
             {props.text}
           </p>
           {props.isCTAExist && <ArrowUpRight size={20} color="white" className="-mt-1" />}

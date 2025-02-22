@@ -13,7 +13,7 @@ import Analytics from "@vercel/analytics/astro";
       name="description"
       content="Veln is Minimalistic AI Framework for create your AI Agents or assistant easily."
     />
-    <title>VELN.</title>
+    <title>VELN VELINE.</title>
   </head>
   <body>
     <slot />
@@ -21,11 +21,17 @@ import Analytics from "@vercel/analytics/astro";
 </html>
 
 <style>
-  @import url(https://fonts.bunny.net/css?family=hanken-grotesk:400,500,600);
+  @font-face {
+    font-family: "Chivo Mono";
+    src: url("/fonts/ChivoMono-Regular.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
 
   @font-face {
-    font-family: "Neue Machina";
-    src: url("/fonts/NeueMachina.otf") format("opentype");
+    font-family: "PP Neue Machina";
+    src: url("/fonts/PPNeueMachina-Regular.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -35,11 +41,14 @@ import Analytics from "@vercel/analytics/astro";
   body {
     padding: 0;
     margin: 0;
-    font-family: "Hanken Grotesk", sans-serif;
-    background-color: #000;
+    box-sizing: border-box;
+    font-family: "Chivo Mono", sans-serif;
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(255, 255, 255, 0.6);
     width: 100%;
     height: 100%;
     scroll-behavior: smooth;
     overflow: hidden;
+    letter-spacing: -0.02em;
   }
 </style>
