@@ -14,6 +14,9 @@ export default defineConfig({
     host: "0.0.0.0",
   },
   vite: {
+    preview: {
+      allowedHosts: ["velnspace-production.up.railway.app", "veln.space"],
+    },
     plugins: [
       svgr({
         include: "**/*.svg?react",
