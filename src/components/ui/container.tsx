@@ -10,7 +10,7 @@ export const Container = (props: ContainerProps) => {
   return (
     <div
       className={cn(
-        "mx-auto flex h-screen w-full flex-col items-center justify-center px-4 md:px-12",
+        "mx-auto flex h-screen w-full flex-col justify-center",
         props.className,
       )}>
       {props.children}

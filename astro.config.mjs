@@ -8,8 +8,10 @@ import svgr from "vite-plugin-svgr";
 // https://astro.build/config
 export default defineConfig({
   integrations: [react(), tailwind({nesting: true})],
-  experimental: {
-    svg: true,
+  experimental: {svg: true},
+  server: {
+    port: 8080,
+    host: "0.0.0.0",
   },
   vite: {
     plugins: [

@@ -4,11 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        machina: ["PP Neue Machina", "sans-serif"],
+        "heuvel-groteks": ["HeuvelGrotesk-Medium", "sans-serif"],
       },
-      colors: {
-        "brand-pink": "#FF006B",
-      },
+      colors: {"brand-pink": "#FF006B"},
     },
   },
   plugins: [],
