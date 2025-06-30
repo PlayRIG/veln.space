@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "astro dev",
     "bundle": "astro check && astro build",
+    "start": "astro preview --host 0.0.0.0 --port $PORT",
     "preview": "astro preview",
     "astro": "astro"
   },
