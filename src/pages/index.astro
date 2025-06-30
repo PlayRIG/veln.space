@@ -6,24 +6,32 @@ import VectorSvg from "@components/svg/vector.svg";
 
 <Layout>
   <Container className="relative">
-    <div class="z-[2] px-10">
+    <div class="w-full max-w-[155px]">
+      <div class="rounded-full bg-black px-2 py-[3px]">
+        <p class="text-center text-sm text-white">$ npx create-veln ai</p>
+      </div>
+    </div>
+    <div class="z-[2] mt-1 text-center">
       <h1 class="font-heuvel-groteks text-[4.2rem] tracking-[-0.2rem] text-black/80">
-        The Next Future
+        The Next Typescript
       </h1>
       <h2
         class="font-heuvel-groteks -mt-7 text-[4.2rem] tracking-[-0.2rem] text-black/80">
         Of <span class="text-brand-pink">AI Framework</span>
       </h2>
+    </div>
 
-      <div class="mt-8 max-w-lg">
-        <p class="text-lg text-black/80">
-          A minimalistic AI solution built for your next-generation AI agent—smooth,
-          simple, and powerful.
+    <div class="z-[2] mt-5 max-w-xl">
+      <div>
+        <p class="text-center text-lg text-black/80">
+          A minimalistic AI solution built for your next-generation tools for AI or multi
+          agents, make it —smooth, simple, and powerful.
         </p>
       </div>
 
-      <div class="space-x-5k mt-8 flex max-w-lg items-center space-x-2">
-        <button class="w-1/2 rounded-sm bg-black px-10 py-3 text-xs text-white"
+      <div class="mt-8 flex items-center space-x-2">
+        <button
+          class="w-1/2 rounded-sm bg-black px-10 py-3 text-xs text-white transition-all ease-in hover:bg-brand-pink"
           >API DOCUMENTATION</button
         >
         <div class="w-1/2">
@@ -32,6 +40,6 @@ import VectorSvg from "@components/svg/vector.svg";
       </div>
     </div>
 
-    <VectorSvg class="absolute -bottom-32 z-[1]" />
+    <VectorSvg class="absolute -bottom-32 z-[1] w-full" />
   </Container>
 </Layout>

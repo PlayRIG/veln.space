@@ -1,15 +1,17 @@
-import huggingFaceLogo from "./assets/images/logo-hugging-face.png";
-import deepseekLogo from "./assets/images/logo-deepseek.png";
-import openAiLogo from "./assets/images/logo-openai.png";
-import perplexityLogo from "./assets/images/logo-perplexity-ai.png";
-import cohereLogo from "./assets/images/logo-cohere.png";
-import ollamaLogo from "./assets/images/logo-ollama.png";
-import geminiLogo from "./assets/images/logo-gemini.png";
-import llamaLogo from "./assets/images/logo-llama-meta.png";
-import groqLogo from "./assets/images/logo-groq.png";
-import anthropicLogo from "./assets/images/logo-anthropic.png";
+import {
+  anthropicLogo,
+  cohereLogo,
+  deepseekLogo,
+  geminiLogo,
+  groqLogo,
+  huggingFaceLogo,
+  ollamaLogo,
+  openAiLogo,
+  perplexityAiLogo,
+  llamaMetaLogo,
+} from "./assets/images";
 
-export const logos = [
+export const aiBrandPlatforms = [
   {
     id: 1,
     company: "Hugging Face",
@@ -31,7 +33,7 @@ export const logos = [
   {
     id: 4,
     company: "Perplexity",
-    logoUrl: perplexityLogo,
+    logoUrl: perplexityAiLogo,
     customStyles: "h-[26px]",
   },
   {
@@ -55,7 +57,7 @@ export const logos = [
   {
     id: 8,
     company: "LLaMA",
-    logoUrl: llamaLogo,
+    logoUrl: llamaMetaLogo,
     customStyles: "h-6",
   },
   {
@@ -72,38 +74,33 @@ export const logos = [
   },
 ];
 
-import coverFeature1 from "./assets/images/cover-feature-1.jpeg";
-import coverFeature2 from "./assets/images/cover-feature-2.jpeg";
-import coverFeature3 from "./assets/images/cover-feature-3.jpeg";
-import coverFeature4 from "./assets/images/cover-feature-4.jpeg";
-
-export const features = [
+export const velnFeatures = [
   {
-    id: '01',
+    id: "01",
     title: "Futuristic Simplicity",
     subtitle: "Designed for seamless integration and intuitive use.",
-    cover: coverFeature1,
+    cover: "",
     ctaLink: "#",
   },
   {
-    id: '02',
+    id: "02",
     title: "AI-Powered Precision",
     subtitle: "Designed for seamless integration and intuitive use.",
-    cover: coverFeature2,
+    cover: "",
     ctaLink: "#",
   },
   {
-    id: '03',
+    id: "03",
     title: "Minimalistic Architecture",
     subtitle: "Designed for seamless integration and intuitive use.",
-    cover: coverFeature3,
+    cover: "",
     ctaLink: "#",
   },
   {
-    id: '04',
+    id: "04",
     title: "Customizable AI Agents",
     subtitle: "Designed for seamless integration and intuitive use.",
-    cover: coverFeature4,
-    ctaLink: "#"
+    cover: "",
+    ctaLink: "#",
   },
 ];
