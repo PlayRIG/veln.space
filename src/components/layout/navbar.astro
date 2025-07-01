@@ -1,6 +1,6 @@
 <header
   id="navbar"
-  class="fixed left-0 top-0 z-[1] flex h-14 w-full items-center justify-between border-b border-black/5 bg-transparent">
+  class="fixed left-0 top-0 z-[3] flex h-14 w-full items-center justify-between border-b border-black/5 bg-transparent transition-all duration-300 ease-in-out">
   <div class="flex items-center space-x-1.5 px-4">
     <img
       src="/images/veln-black.png"
@@ -14,21 +14,21 @@
   </div>
 
   <nav class="ml-16 flex items-center space-x-10">
-    <a data-section="who" href="#who" class="nav-link text-[0.9rem] text-black/70"
+    <a
+      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
       >About</a
     >
-    <a data-section="what" href="#what" class="nav-link text-[0.9rem] text-black/70"
+    <a
+      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
       >Agents</a
     >
     <a
-      data-section="portfolio"
-      href="#portfolio"
-      class="nav-link text-[0.9rem] text-black/70">Research</a
+      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
+      >Research</a
     >
     <a
-      data-section="portfolio"
-      href="#portfolio"
-      class="nav-link text-[0.9rem] text-black/70">Litepaper</a
+      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
+      >Litepaper</a
     >
   </nav>
 
@@ -40,3 +40,68 @@
     </button>
   </div>
 </header>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const getNavbar = document.getElementById("navbar") as HTMLElement;
+    const getLogo = document.getElementById("logo") as HTMLImageElement;
+    const navLinks = document.querySelectorAll(".nav-link");
+    const navButton = document.getElementById("nav-button");
+    const heroSection = document.getElementById("veln-stand");
+    const scrollThreshold = 50;
+
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const isInHeroSection = heroSection && scrollY < heroSection.offsetHeight;
+
+      if (scrollY > scrollThreshold) {
+        getNavbar.classList.remove("bg-transparent");
+        getNavbar.classList.add("backdrop-blur-sm");
+      } else {
+        getNavbar.classList.remove("backdrop-blur-sm");
+        getNavbar.classList.add("bg-transparent");
+      }
+
+      if (!isInHeroSection) {
+        if (getLogo) getLogo.src = "/images/veln-white.png";
+
+        navLinks.forEach((link) => {
+          link.classList.remove("text-black/70", "hover:text-brand-pink");
+          link.classList.add("text-white/70", "hover:text-white");
+        });
+
+        if (navButton) {
+          navButton.classList.remove("bg-black", "text-white", "hover:bg-brand-pink");
+          navButton.classList.add("bg-white", "text-black", "hover:bg-white/90");
+        }
+      } else {
+        if (getLogo) getLogo.src = "/images/veln-black.png";
+
+        navLinks.forEach((link) => {
+          link.classList.remove("text-white/70", "hover:text-white");
+          link.classList.add("text-black/70", "hover:text-brand-pink");
+        });
+
+        if (navButton) {
+          navButton.classList.remove("bg-white", "text-black", "hover:bg-white/90");
+          navButton.classList.add("bg-black", "text-white", "hover:bg-brand-pink");
+        }
+      }
+    };
+
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", throttledScroll);
+
+    handleScroll();
+  });
+</script>
