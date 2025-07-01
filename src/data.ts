@@ -9,7 +9,18 @@ import {
   openAiLogo,
   perplexityAiLogo,
   llamaMetaLogo,
-} from "./assets/images";
+} from "./assets/images/ai-brands";
+
+import {
+  CoverFour,
+  CoverOne,
+  CoverThree,
+  CoverTwo,
+  EffectFour,
+  EffectOne,
+  EffectThree,
+  EffectTwo,
+} from "./assets/images/stands";
 
 export const aiBrandPlatforms = [
   {
@@ -78,29 +89,33 @@ export const velnFeatures = [
   {
     id: "01",
     title: "Futuristic Simplicity",
-    subtitle: "Designed for seamless integration and intuitive use.",
-    cover: "",
+    subtitle: "Streamlined design that anticipates your workflow.",
+    cover: CoverOne,
+    effect: EffectOne,
     ctaLink: "#",
   },
   {
     id: "02",
     title: "AI-Powered Precision",
-    subtitle: "Designed for seamless integration and intuitive use.",
-    cover: "",
+    subtitle: "Harness AI to deliver results with unmatched accuracy.",
+    cover: CoverTwo,
+    effect: EffectTwo,
     ctaLink: "#",
   },
   {
     id: "03",
     title: "Minimalistic Architecture",
-    subtitle: "Designed for seamless integration and intuitive use.",
-    cover: "",
+    subtitle: "Clean structure built for performance and clarity.",
+    cover: CoverThree,
+    effect: EffectThree,
     ctaLink: "#",
   },
   {
     id: "04",
     title: "Customizable AI Agents",
-    subtitle: "Designed for seamless integration and intuitive use.",
-    cover: "",
+    subtitle: "Tailor intelligent agents to match your exact needs.",
+    cover: CoverFour,
+    effect: EffectFour,
     ctaLink: "#",
   },
 ];

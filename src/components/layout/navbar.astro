@@ -15,19 +15,19 @@
 
   <nav class="ml-16 flex items-center space-x-10">
     <a
-      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
+      class="nav-link cursor-pointer text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
       >About</a
     >
     <a
-      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
+      class="nav-link cursor-pointer text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
       >Agents</a
     >
     <a
-      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
+      class="nav-link cursor-pointer text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
       >Research</a
     >
     <a
-      class="nav-link text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
+      class="nav-link cursor-pointer text-[0.9rem] text-black/70 transition-all ease-in hover:text-brand-pink"
       >Litepaper</a
     >
   </nav>
@@ -47,13 +47,19 @@
     const getLogo = document.getElementById("logo") as HTMLImageElement;
     const navLinks = document.querySelectorAll(".nav-link");
     const navButton = document.getElementById("nav-button");
-    const heroSection = document.getElementById("veln-stand");
+    const aiBrands = document.getElementById("ai-brands");
     const scrollThreshold = 50;
 
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const isInHeroSection = heroSection && scrollY < heroSection.offsetHeight;
+      let hasReachedAIBrands = false;
 
+      if (aiBrands) {
+        const aiBrandsTop = aiBrands.offsetTop;
+        hasReachedAIBrands = scrollY + 1 >= aiBrandsTop;
+      }
+
+      // Handle backdrop blur based on scroll threshold
       if (scrollY > scrollThreshold) {
         getNavbar.classList.remove("bg-transparent");
         getNavbar.classList.add("backdrop-blur-sm");
@@ -62,7 +68,9 @@
         getNavbar.classList.add("bg-transparent");
       }
 
-      if (!isInHeroSection) {
+      // Change colors when we reach veln-stand section and beyond
+      if (hasReachedAIBrands) {
+        // White theme for veln-stand section and beyond
         if (getLogo) getLogo.src = "/images/veln-white.png";
 
         navLinks.forEach((link) => {
@@ -75,6 +83,7 @@
           navButton.classList.add("bg-white", "text-black", "hover:bg-white/90");
         }
       } else {
+        // Black theme for sections before veln-stand (hero, ai-brands)
         if (getLogo) getLogo.src = "/images/veln-black.png";
 
         navLinks.forEach((link) => {
@@ -90,6 +99,7 @@
     };
 
     let ticking = false;
+
     const throttledScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
@@ -102,6 +112,7 @@
 
     window.addEventListener("scroll", throttledScroll);
 
+    // Initial call
     handleScroll();
   });
 </script>
